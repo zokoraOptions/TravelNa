@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default"> 
+                <div class="panel-heading"> 
+                    <span class="panel-title"><h1>Ajout conducteur</h1></span> 
+                </div> 
+                <div class="panel-body">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                        <div class="form-group">
+                             {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                             {{ form_errors(form.nom) }}
+                             <div class="col-sm-4">
+                                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-2">
+                            <input type="submit" value="Ajouter" class="btn btn-default"/>
+                            <a href="{{ path('conducteur_index') }}" class="btn btn-default">Retourner à la liste</a>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+{% endblock %}

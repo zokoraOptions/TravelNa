@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default"> 
+                <div class="panel-heading"> 
+                    <span class="panel-title"><h1>Client</h1></span> 
+                </div> 
+                <div class="panel-body"></div> 
+                <table class="table table-bordered">
+                    <tbody class="text-center">
+                        <tr>
+                            <th>Plaque d'immatriculation</th>
+                            <td>{{ camion.plaqueImmatriculation }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tierce</th>
+                            <td>{% if camion.tierce %}Yes{% else %}No{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Conducteur</th>
+                            <td>{{camion.conducteur.nom}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <a href="{{ path('camion_index') }}" class="btn btn-default">Retourner à la liste</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

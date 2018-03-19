@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default"> 
+                <div class="panel-heading"> 
+                    <span class="panel-title"><h1>Listes des Camions</h1></span> 
+                </div> 
+                <div class="panel-body"><a href="{{ path('camion_new') }}" class="btn btn-default">Ajouter un camion</a></div> 
+                <table class="table table-bordered"> 
+                    <thead> 
+                        <tr> 
+                            <th class="text-center">Plaque d'immatriculation</th>
+                            <th class="text-center">Tierce</th>
+                            <th class="text-center">Conducteur</th>
+                            <th class="text-center">Actions</th>
+                        </tr> 
+                    </thead> 
+                    <tbody class="text-center">
+                        {% for camion in camions %}
+                            <tr>
+                                <td>{{ camion.plaqueImmatriculation }}</td>
+                                <td>{% if camion.tierce %}Yes{% else %}No{% endif %}</td>
+                                 <td>{{ camion.conducteur.nom }}</td>
+                                <td>
+                                    <a href="{{ path('camion_show', { 'id': camion.id }) }}" class="btn btn-default">Voir</a>
+                                    <a href="{{ path('camion_edit', { 'id': camion.id }) }}" class="btn btn-default">Modifier</a>
+                                    <a href="{{ path('camion_suppression', { 'id': camion.id }) }}" class="btn btn-default">Supprimer</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

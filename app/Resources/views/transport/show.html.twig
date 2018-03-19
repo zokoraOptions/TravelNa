@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default"> 
+                <div class="panel-heading"> 
+                    <span class="panel-title"><h1>Transport</h1></span> 
+                </div> 
+                <div class="panel-body"></div> 
+                <table class="table table-bordered">
+                    <tbody class="text-center">
+                        <tr>
+                            <th>Transit</th>
+                            <td>{{ transport.transit }}</td>
+                        </tr>
+                        <tr>
+                            <th>Comission</th>
+                            <td>{{ transport.comission }}</td>
+                        </tr>
+                        <tr>
+                            <th>Date de transport</th>
+                            <td>{% if transport.dateTransport %}{{ transport.dateTransport|date('Y-m-d') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Client</th>
+                            <td>{{ transport.client.nom }}</td>
+                        </tr>
+                        <tr>
+                            <th>Camion</th>
+                            <td>{{ transport.camion.plaqueImmatriculation }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <a href="{{ path('transport_index') }}" class="btn btn-default">Retourner à la liste</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

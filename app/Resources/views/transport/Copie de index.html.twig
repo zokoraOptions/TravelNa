@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container">
+        <div class="row">
+            <div class="panel panel-default"> 
+                <div class="panel-heading"> 
+                    <span class="panel-title"><h1>Listes des Transports</h1></span> 
+                </div> 
+                <div class="panel-body">
+                   <a href="{{ path('transport_new') }}" class="btn btn-default">Ajouter un transport</a>
+                   <a href="#" class="btn btn-default pull-right">Exporter</a>
+                </div> 
+                <table class="table table-bordered"> 
+                    <thead> 
+                        <tr> 
+                            <th class="text-center">Transit</th>
+                            <th class="text-center">Comission</th>
+                            <th class="text-center">Date de transport</th>
+                            <th class="text-center">Client</th>
+                            <th class="text-center">Camion</th>
+                            <th class="text-center">Actions</th>
+                        </tr> 
+                    </thead> 
+                    <tbody class="text-center">
+                        {% for transport in transports %}
+                            <tr>
+                                <td>{{ transport.transit }}</td>
+                                <td>{{ transport.comission }}</td>
+                                <td>{% if transport.dateTransport %}{{ transport.dateTransport|date('Y-m-d') }}{% endif %}</td>
+                                <td>{{ transport.client.nom }}</td>
+                                <td>{{ transport.camion.plaqueImmatriculation }}</td>
+                                <td>
+                                    <a href="{{ path('transport_show', { 'id': transport.id }) }}" class="btn btn-default">Voir</a>
+                                    <a href="{{ path('transport_edit', { 'id': transport.id }) }}" class="btn btn-default">Modifier</a>
+                                    <a href="{{ path('transport_suppression', { 'id': transport.id }) }}" class="btn btn-default">Supprimer</a>
+                                    <button onclick="xxx({{transport.id}})">Supprimer</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Modal </button> 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog"> 
+            <div class="modal-content"> 
+                <div class="modal-header"> 
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
+                    <h4 class="modal-title" id="myModalLabel"></h4> 
+                </div> 
+                <div class="modal-body id="affichage2"">
+
+                </div> 
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal"> Fermer </button> 
+                    <button type="button" class="btn btn-primary"> Enregistrer </button> 
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <!--<h2>Example of using methods of Modal Plugin</h2>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Launch demo modal </button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+        <div class="modal-dialog"> 
+            <div class="modal-content"> 
+                <div class="modal-header"> 
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                        <a href="#" id="add_x" class="btn btn-default">Ajouter x</a><br>
+                    </button> 
+                    <h4 class="modal-title" id="myModalLabel"> This Modal title </h4> 
+                </div> 
+                <div class="modal-body"> Press ESC button to exit. </div> 
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close </button> 
+                    <button type="button" class="btn btn-primary"> Submit changes </button> 
+                </div> 
+            </div>
+        </div>
+    </div>-->
+
+
+        <a href="#" id="add_x" class="btn btn-default">Ajouter x</a><br>
+        <div id="affichage2"></div>
+
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script>
+        $(function()
+        {
+            $('#add_x').click(
+            function(e)
+            {
+                var url1="{{path('transport_new')}}";
+                alert(url1);
+                $('#affichage2').load(url1);
+                e.preventDefault();
+                
+            });
+        });
+        function xxx(id) 
+        {
+            var url="{{path('transport_new',{'id':'index'})}}";
+            url=url.replace('text',id);
+            alert(url);
+        }
+    </script>
+{% endblock %}

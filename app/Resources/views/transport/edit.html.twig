@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     <div class="container">
+        <div class="row">
+            <div class="panel panel-default"> 
+                <div class="panel-heading"> 
+                    <span class="panel-title"><h1>Modification Transport</h1></span> 
+                </div> 
+                <div class="panel-body">
+                    {{ form_start(edit_form, {'attr': {'class': 'form-horizontal'}}) }}
+                        <div class="form-group">
+                             {{ form_label(edit_form.transit, "Transit", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                             {{ form_errors(edit_form.transit) }}
+                             <div class="col-sm-4">
+                                {{ form_widget(edit_form.transit, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             {{ form_label(edit_form.comission, "Comission", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                             {{ form_errors(edit_form.comission) }}
+                             <div class="col-sm-4">
+                                {{ form_widget(edit_form.comission, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             {{ form_label(edit_form.dateTransport, "Date de Transport", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                             <div class="col-sm-4">
+                                {{ form_widget(edit_form.dateTransport) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.client, "Client", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                            <div class="col-sm-4">
+                                {{ form_widget(edit_form.client, {'attr': {'class': 'form-control'}}) }}
+                             </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.camion, "Camion", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                            <div class="col-sm-4">
+                                {{ form_widget(edit_form.camion, {'attr': {'class': 'form-control'}}) }}
+                             </div>
+                        </div>
+                        <div class="col-sm-offset-2">
+                            <input type="submit" value="Modifier" class="btn btn-default"/>
+                            <a href="{{ path('transport_index') }}" class="btn btn-default">Retourner à la liste</a>
+                        </div>
+                        <!--{{ form_end(edit_form) }}
+                        {{ form_start(delete_form, {'attr': {'class': 'form-inline'}}) }}
+                            <input type="submit" value="Delete" class="btn btn-default">
+                        {{ form_end(delete_form) }}-->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

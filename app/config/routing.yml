@@ -1,0 +1,59 @@
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_conducteur:
+    resource: "@TravelBundle/Controller/ConducteurController.php"
+    type:     annotation
+
+travel_camion:
+    resource: "@TravelBundle/Controller/CamionController.php"
+    type:     annotation
+
+travel_transport:
+    resource: "@TravelBundle/Controller/TransportController.php"
+    type:     annotation
+
+travel_client:
+    resource: "@TravelBundle/Controller/ClientController.php"
+    type:     annotation
+
+travel:
+    resource: "@TravelBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Gestionnaire de Transport{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <ul class="nav nav-pills"> 
+                    <li><a href="{{path('client_index')}}">Client</a></li> 
+                    <li><a href="{{path('transport_index')}}">Transport</a></li> 
+                    <li><a href="{{path('camion_index')}}">Camion</a></li> 
+                    <li><a href="{{path('conducteur_index')}}">Conducteur</a></li> 
+                    <li><a href="#">Maintenance</a></li> 
+                    <li><a href="#">Facture</a></li> 
+                </ul>
+                {% block header%}{% endblock %}
+            </header>
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div>
+    </body>
+</html>
